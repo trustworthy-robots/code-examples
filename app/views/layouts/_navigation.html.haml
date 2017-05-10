@@ -1,0 +1,9 @@
+%header.l-siteHeader
+  .l-container
+    - logo_path = 'blocks/b-siteLogo/logo_robots.png'
+    = render partial: 'layouts/site_logo', locals: { logo_path: logo_path, additional_class_name: '', }
+    = render partial: 'layouts/navigation_links', locals: { additional_class_name: '' }
+    - if current_page?(root_path)
+      = link_to 'Hire robots', '#', class: 'b-button btn-success -header', data: { action: :scroll, scroll_to: '#hire-robots' }
+    - else
+      = link_to 'Hire robots', root_path(anchor: 'hire-robots'), class: 'b-button btn-success -header'

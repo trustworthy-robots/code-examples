@@ -1,0 +1,26 @@
+%footer.l-siteFooter
+  .l-siteFooter__top
+    .l-container
+      .b-social
+        .row
+          .col-lg-3.col-md-3
+            = link_to 'https://plus.google.com/u/1/113063432426644340552', rel: 'nofollow', target: '_blank', class: 'b-social__link' do
+              %span.b-social__icon.-g
+              %span.b-social__text Follow us on Google+
+          .col-lg-3.col-md-3
+            = link_to 'https://twitter.com/trustyrobots', rel: 'nofollow', target: '_blank', class: 'b-social__link' do
+              %span.b-social__icon.-tw
+              %span.b-social__text Follow us on Twitter
+          .col-lg-3.col-md-3
+            = link_to '', class: 'b-social__link' do
+              %span.b-social__icon.-in
+              %span.b-social__text Follow us on LinkedIn
+          .col-lg-3.col-md-3
+            = link_to '', class: 'b-social__link' do
+              %span.b-social__icon.-fb
+              %span.b-social__text Like us on Facebook
+  .l-siteFooter__bottom
+    .l-container
+      - logo_path = 'blocks/b-promo/robot.svg'
+      = render partial: 'layouts/site_logo', locals: { logo_path: logo_path, additional_class_name: '-footer'}
+      = render partial: 'layouts/navigation_links', locals: { additional_class_name: '-footer' }

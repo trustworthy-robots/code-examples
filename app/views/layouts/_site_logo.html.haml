@@ -1,0 +1,6 @@
+- logo_class_name = 'b-siteLogo'
+- logo_class_name += " #{additional_class_name}" if additional_class_name.present?
+
+%div{ class: logo_class_name }
+  = link_to root_path, class: 'b-siteLogo__link' do
+    = image_tag logo_path, class: 'b-siteLogo__icon', alt: 'Trustworthy robots', title: 'Trustworthy robots'

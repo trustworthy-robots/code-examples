@@ -1,0 +1,25 @@
+%section.b-section
+  .l-container
+    %h2.b-section__title Blog
+    .row
+      .col-lg-7.col-lg-offset-1.col-md-7.col-md-offset-1
+        .b-blogPost
+          .b-blogPost__user
+            = image_tag 'blocks/b-promo/robot.svg', class: 'b-blogPost__userIco', alt: 'User', width: 60, height: 60
+          %h1.b-blogPost__title= @post.try(:title)
+          .b-blogPost__text
+            - if @post.try(:attachment).present?
+              = image_tag @post.attachment.file_attachment.url, alt: 'Image'
+            = @post.html_body.try(:html_safe)
+          .b-blogPost__nav
+            - if @posts_collection.previous_post
+              = link_to 'previous post', @posts_collection.previous_post, class: 'b-blogPost__navLinkPrev'
+            - if @posts_collection.next_post
+              = link_to 'next post', @posts_collection.next_post, class: 'b-blogPost__navLinkNext'
+      .col-lg-4.col-md-4
+        .b-aside
+          %h3.b-aside__title latest posts
+          %ul.b-aside__nav
+            - @posts_collection.page_scope(params[:page]).reverse.each do |post|
+              %li.b-aside__navItem
+                = link_to post.title, post_path(post), class: 'b-aside__navLink'

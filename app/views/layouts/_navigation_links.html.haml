@@ -1,0 +1,9 @@
+- nav_class_name = 'b-nav'
+- nav_class_name += " #{additional_class_name}" if additional_class_name.present?
+
+%nav{ class: nav_class_name }
+  %ul.b-nav__list
+    %li.b-nav__item= link_to 'Home', root_path, class: 'b-nav__link'
+    %li.b-nav__item= link_to 'About us', about_index_path, class: 'b-nav__link'
+    %li.b-nav__item= link_to 'Products', products_path, class: 'b-nav__link'
+    %li.b-nav__item= link_to 'Blog', posts_path, class: 'b-nav__link'

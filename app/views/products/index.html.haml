@@ -1,0 +1,12 @@
+%section.b-baner
+  .l-container
+    .row
+      .col-lg-8
+        %h1.b-baner__title DO YOU WANT TO GET IN TOUCH?
+        %p.b-baner__text We are always excited about new projects!
+      .col-lg-4= link_to 'contact us', root_path(anchor: 'hire-robots'), class: 'b-button btn-danger -lg -narrow'
+
+%section.b-section
+  .l-container
+    %h2.b-section__title our work
+    = render 'home/products'

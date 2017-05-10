@@ -1,0 +1,51 @@
+%section.b-promo.hidden-xs
+  .l-container
+    = image_tag 'blocks/b-promo/robot.svg', class: '.b-promo__ill', alt: 'Robot', height: 270
+    %h1.b-promo__header Robots that help your business grow
+    = link_to 'Read more >> ', about_index_path, class: 'b-promo__link page-scroll'
+
+%section.b-section
+  %h2.b-section__title Meet our squad
+  .l-wrapper.-light-gray
+    .l-container
+      = render 'team'
+      .text-center= link_to 'Hire us', '#', class: 'b-button btn-success -lg -single', data: { action: :scroll, scroll_to: '#hire-robots' }
+
+%section.b-section
+  .l-container
+    %h2.b-section__title our work
+    = render 'products'
+
+%section.b-section
+  .l-wrapper.-green
+    .l-container
+      .row
+        .col-lg-8.col-lg-offset-2
+          //class '-submitted' for submitted state
+          .b-form#hire-robots
+            %h2.b-form__title Contact Us
+            = form_tag feedbacks_path, remote: true, id: :hire_robots do
+              .form-group.b-form__group
+                = text_field_tag 'feedback[user_name]', '', placeholder: 'What is your name?', class: 'form-control b-form__control', required: true
+              .form-group.b-form__group
+                = email_field_tag 'feedback[user_email]', '', placeholder: 'What is your email address?', class: 'form-control b-form__control', required: true
+              .form-group.b-form__group
+                - placeholder = "What would you like \nTrusty robots to do for you?"
+                = text_area_tag 'feedback[body]', '', placeholder: placeholder, class: 'form-control b-form__control', rows: 5, required: true
+              .text-center
+                = submit_tag 'Submit', class: 'b-button btn-danger -lg'
+            .b-form__msg Thank you, we will get back to you soon!
+            = image_tag 'blocks/b-form/ill.png', class: 'b-form__ill hidden-sm hidden-xs', alt: 'Robot', height: 270
+
+%section.b-section
+  .l-container
+    %h2.b-section__title Blog
+    .b-blogPreview
+      = image_tag 'blocks/b-blogPreview/robot.png', class: 'b-blogPreview__ill hidden-xs hidden-sm', alt: 'Robot', width: 150,
+      height: 225
+      .b-blogPreview__content
+        - if @last_post.present?
+          .b-blogPreview__text
+            %h3= link_to @last_post.title, post_path(@last_post)
+            %p= @last_post.short_description
+          = link_to 'Read more >>>', post_path(@last_post), class: 'b-blogPreview__link'

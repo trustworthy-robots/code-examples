@@ -1,0 +1,35 @@
+%section.b-section
+  .l-container
+    %h2.b-section__title about us
+    .b-about
+      %p
+        We are an agile full web stack development and automation team based in Philadelphia, PA, USA. We build software solutions from scratch as well as develop and maintain existing
+        web products and automations. Our programming language of choice is Ruby. Our framework of choice - Ruby on Rails.
+      %p
+        What robots can do:
+      %ul
+        %li Enterprise-grade systems from scratch;
+        %li SQL and NOSQL database performance improvements;
+        %li Realtime monitoring and visualization;
+        %li Deep system analysis, configuration and management;
+        %li Automated reporting and other automation solutions;
+        %li Coaching.
+      -# %p
+      -#   Contact our team: 484-687-0152
+
+%section.b-section
+  %h2.b-section__title Meet our squad
+  .l-wrapper.-light-gray
+    .l-container
+      = render 'home/team'
+      .text-center= link_to 'Hire us', root_path(anchor: 'hire-robots'), class: 'b-button btn-success -lg -single'
+
+%section.b-section
+  .l-container
+    %h2.b-section__title technologies we use
+    .b-technologies
+      = image_tag 'blocks/b-technologies/ruby.jpg', class: 'b-technologies__image', alt: 'Ruby'
+      = image_tag 'blocks/b-technologies/rails.png', class: 'b-technologies__image', alt: 'Rails'
+      = image_tag 'blocks/b-technologies/linux.png', class: 'b-technologies__image', alt: 'Linux'
+      = image_tag 'blocks/b-technologies/sql.png', class: 'b-technologies__image', alt: 'SQL'
+      = image_tag 'blocks/b-technologies/html5.png', class: 'b-technologies__image', alt: 'HTML5'
